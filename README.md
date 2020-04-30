@@ -15,5 +15,17 @@ Soundtrack: turn on Youtube/Spotify, play Klaus Doldinger's *Das Boot* OST.
 
 EVERYTHING! (incl. tests).
 
+...
+
+Ok, ok...
+
+- [ ] Game init: player names
+- [ ] Game init: empty board
+- [ ] Rules of Ship Placing
+- [ ] AI modes: choose creational pattern (or Strategy?)
+- [ ] main loop: make end turn conditions
+- [ ] main loop: shooting rules (again: which pattern?)
+- [ ] main loop: win/lose conditions
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
