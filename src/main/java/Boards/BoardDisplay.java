@@ -28,8 +28,8 @@ public class BoardDisplay {
             }
         }
 
-        hits.forEach(c -> grid[c.row][c.column] = 'X');
-        missed.forEach(c -> grid[c.row][c.column] = 'O');
+        hits.forEach(c -> grid[c.getRow()][c.getColumn()] = 'X');
+        missed.forEach(c -> grid[c.getRow()][c.getColumn()] = 'O');
 
         for(int i = 0; i<Board.SIZE; i++){
             System.out.print((char)(i+65));

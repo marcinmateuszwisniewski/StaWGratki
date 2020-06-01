@@ -1,8 +1,8 @@
 package Ships;
 
 public class Coordinate {
-    public int row;
-    public int column;
+    private int row;
+    private int column;
 
     private Coordinate(){}
 
@@ -12,7 +12,15 @@ public class Coordinate {
     }
 
     public Coordinate(Coordinate c) {
-        this.row = c.row;
-        this.column = c.column;
+        this.row = c.getRow();
+        this.column = c.getColumn();
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return column;
     }
 }
