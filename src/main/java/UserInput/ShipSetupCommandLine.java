@@ -16,6 +16,9 @@ public class ShipSetupCommandLine implements CommandLineInterface{
     public ShipSetupResponse read(){
 
         System.out.println("give date in format: nameOfShip c1 c2 3");
+        System.out.println("nameOfShip - duh");
+        System.out.println("c1 c2 - first two coordinates (their order matters!), must be side-by-side");
+        System.out.println("3 - overall length of ship");
         String result = scanner.nextLine();
         StringTokenizer stringTokenizer = new StringTokenizer(result);
         String shipName = stringTokenizer.nextToken();

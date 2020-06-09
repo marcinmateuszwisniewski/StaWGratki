@@ -43,6 +43,11 @@ public class ShipSetup implements ShipSetupInterface{
         numberOfShips.add(2,2);
 
         while(!numberOfShips.isEmpty()){
+
+
+            System.out.println("Ships left to set on board:");
+            numberOfShips.uniqueSet().forEach(x -> System.out.println(x +": " + numberOfShips.getCount(x)));
+
             ShipSetupResponse response;
             response = (ShipSetupResponse) commandLine.read();
 
@@ -64,6 +69,8 @@ public class ShipSetup implements ShipSetupInterface{
                 } catch (IllegalArgumentException e){
                     System.out.println("Bad params"+ e.getMessage()+ " Provide correct input");
                 }
+
+
             }
 
 
