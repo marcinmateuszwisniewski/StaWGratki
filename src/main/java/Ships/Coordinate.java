@@ -68,7 +68,7 @@ public class Coordinate {
     }
     /**
      * @param c coordinate to proof
-     * @return true, if this coordinates are "east" of c(ie. this coord touches touches left side of c on grid), false otherwise
+     * @return true, if this coordinates are "east" of c(ie. this coord touches touches right side of c on grid), false otherwise
      */
     public boolean isEastTo(Coordinate c) {
         return this.row == c.row && this.column - 1 == c.column;
