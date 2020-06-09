@@ -12,22 +12,22 @@ public class Dockyard implements ShipFactory {
     }
 
     @Override
-    public Ship launch(String name, Coordinate first, Coordinate further, int length) {
+    public Ship launch(String name, Coordinate first, Coordinate further, int originalLength) {
         Set<Coordinate> positions = new HashSet<>();
-        length-=2;
+        int length = originalLength - 2;
         int rowInc = 0;
         int colInc = 0;
         if(first.isNorthTo(further)){
-            colInc += 1;
-        }
-        if(first.isSouthTo(further)){
-            colInc -= 1;
-        }
-        if(first.isWestTo(further)){
             rowInc += 1;
         }
         if(first.isSouthTo(further)){
             rowInc -= 1;
+        }
+        if(first.isWestTo(further)){
+            colInc += 1;
+        }
+        if(first.isSouthTo(further)){
+            colInc -= 1;
         }
 
         if(!first.isBy(further)){
@@ -38,13 +38,13 @@ public class Dockyard implements ShipFactory {
         positions.add(new Coordinate(further));
 
         while (length > 0){
-            positions.add(Coordinate.of(first.getRow()+rowInc, first.getColumn()+colInc));
+            positions.add(Coordinate.of(further.getRow()+rowInc, further.getColumn()+colInc));
             rowInc+=rowInc;
             colInc+=colInc;
             length--;
         }
 
-        return new Ship(name, positions, length);
+        return new Ship(name, positions, originalLength);
 
 
 
