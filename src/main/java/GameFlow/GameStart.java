@@ -1,6 +1,5 @@
 package GameFlow;
 
-import Command.NameCommand;
 import GameState.GameState;
 import GameState.GameStateService;
 import UserInput.StartGameCommandLine;
@@ -18,10 +17,9 @@ public class GameStart {
     public void init(){
         GameState gameState = stateService.getState();
         System.out.println("Tell your name");
-        NameCommand cmd = commandLine.takeNameCommand();
-        gameState.playerHumanName = cmd.getName();
+        gameState.playerHumanName = commandLine.read();
         System.out.println("Name opponent");
-        gameState.playerAIName = commandLine.takeNameCommand().getName();
+        gameState.playerAIName = commandLine.read();
         stateService.updateState(gameState);
 
     }
