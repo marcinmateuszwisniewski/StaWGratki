@@ -60,7 +60,7 @@ public class ShipSetup implements ShipSetupInterface {
 
                     if (ShipValidator.validate(newShip, ships)) {
                         ships.add(newShip);
-                        numberOfShips.remove(newShip.getOriginalLength());
+                        numberOfShips.remove(newShip.getOriginalLength(),1);
                         System.out.println("Ship added: " + newShip.getName());
                         boardDisplay.printShipsSetup(ships);
 
