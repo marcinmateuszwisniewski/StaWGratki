@@ -1,10 +1,13 @@
 package GameState;
 
+import Boards.Board;
+
 public class GameState {
     public String playerHumanName;
     public String playerAIName;
-    public Boards.Board playerHumanBoard;
-    public Boards.Board playerAIBoard;
+    public Board playerHumanBoard;
+    public Board playerAIBoard;
+
 
     GameState(String playerName, String aiName){
         this.playerHumanName = playerName;
