@@ -95,4 +95,14 @@ public class Coordinate {
     public boolean isBy(Coordinate c) {
         return isEastTo(c) || isNorthTo(c) || isSouthTo(c) || isWestTo(c);
     }
+
+    /**
+     * This is toString() implementation.
+     *
+     * @return coordinates in format XY, where X= {A,B,C,D...}, and Y={0,1,2,3,...}.
+     */
+    @Override
+    public String toString() {
+        return (char) (row + 65) +""+ column;
+    }
 }
