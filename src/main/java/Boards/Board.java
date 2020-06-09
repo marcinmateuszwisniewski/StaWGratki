@@ -39,4 +39,6 @@ public class Board {
         missed.forEach(h -> coordinates.add(new Coordinate(h)));
         return coordinates;
     }
+
+
 }
