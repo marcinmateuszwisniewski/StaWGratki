@@ -1,6 +1,6 @@
 package GameState;
 
-public class GameStateService {
+public final class GameStateService {
 
     private GameState INSTANCE;
 
@@ -17,12 +17,8 @@ public class GameStateService {
         return INSTANCE.copy();
     }
 
-
-    public void reset(){
-
-    }
-
     public void updateState(GameState state){
         INSTANCE = state;
     }
+
 }
