@@ -1,17 +1,45 @@
 package Ships;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Ship {
 
-    String name;
+    Set<Coordinate> position = new HashSet<>();
 
-    Ship(){}
-
-    public Ship(Ship ship){
-        this.name = ship.name;
+    public String getName() {
+        return name;
     }
 
-    public String getName(){
-        return this.name;
+    public int getOriginalLength() {
+        return originalLength;
+    }
+
+    private final String name;
+    private final int originalLength;
+    private Ship(String name, int originalLength){
+        this.name = name;
+        this.originalLength = originalLength;
+    }
+
+    Ship(String name, Set<Coordinate> position, int originalLength){
+        this.name = name;
+        position.forEach(coordinate -> this.position.add(new Coordinate(coordinate))); //skoro koordynaty są immutable?
+        this.originalLength = originalLength;
+    }
+
+    public Ship(Ship ship){
+
+        HashSet<Coordinate> newPos = new HashSet<>();
+        ship.position.forEach(coordinate -> newPos.add(new Coordinate(coordinate))); //skoro koordynaty są immutable?
+        this.position = newPos;
+        this.name = ship.name;
+        this.originalLength = ship.originalLength;
+
+    }
+
+    public HashSet<Coordinate> getPosition(){
+        return new HashSet<>(position);
     }
 
 }
