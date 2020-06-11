@@ -15,11 +15,10 @@ public class ShipSetupCommandLine implements CommandLineInterface {
     }
 
     public ShipSetupResponse read() throws IllegalArgumentException{
-
-        System.out.println("give ship info in format: nameOfShip c1 c2 3");
-        System.out.println("nameOfShip - duh");
+        System.out.println("give ship info in format: c1 c2 3 name");
         System.out.println("c1 c2 - first two coordinates (their order matters!), must be side-by-side");
         System.out.println("3 - overall length of ship");
+        System.out.println("name - duh");
         String result = scanner.nextLine();
         StringTokenizer stringTokenizer = new StringTokenizer(result);
         String shipName;
@@ -28,13 +27,12 @@ public class ShipSetupCommandLine implements CommandLineInterface {
         int length;
 
         try {
-            shipName = stringTokenizer.nextToken();
             firstCoord = stringTokenizer.nextToken();
             secondCoord = stringTokenizer.nextToken();
             length = Integer.parseInt(stringTokenizer.nextToken());
+            shipName = stringTokenizer.nextToken("");
         } catch (NoSuchElementException e) {
             throw new IllegalArgumentException("your input lacks something", e);
-
         }
 
         Coordinate firstC;
