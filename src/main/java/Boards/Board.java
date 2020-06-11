@@ -4,14 +4,15 @@ import Ships.Ship;
 import Ships.Coordinate;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class Board {
 
     public static final int SIZE = 10;
 
-    HashSet<Ship> ships;
-    HashSet<Coordinate> hits;
-    HashSet<Coordinate> missed;
+    Set<Ship> ships;
+    Set<Coordinate> hits;
+    Set<Coordinate> missed;
 
 
     Board(){
@@ -28,17 +29,20 @@ public class Board {
         return copyBoard;
     }
 
-    public HashSet<Coordinate> getHits() {
+    public Set<Coordinate> getHits() {
         HashSet<Coordinate> coordinates = new HashSet<>();
         hits.forEach(h -> coordinates.add(new Coordinate(h)));
         return coordinates;
     }
 
-    public HashSet<Coordinate> getMissed() {
+    public Set<Coordinate> getMissed() {
         HashSet<Coordinate> coordinates = new HashSet<>();
         missed.forEach(h -> coordinates.add(new Coordinate(h)));
         return coordinates;
     }
 
 
+    public void setShips(Set<Ship> ships) {
+        this.ships = ships;
+    }
 }
