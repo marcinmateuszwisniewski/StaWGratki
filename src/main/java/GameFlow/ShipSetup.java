@@ -35,7 +35,6 @@ public class ShipSetup implements ShipSetupInterface {
     public void setup() {
 
         HashSet<Ship> ships = new HashSet<>();
-        GameState gameState = gameStateService.getState();
 
         Bag<Integer> numberOfShips = new HashBag<>();
         numberOfShips.add(5);
@@ -55,12 +54,17 @@ public class ShipSetup implements ShipSetupInterface {
                     ShipSetupResponse response;
                     response = (ShipSetupResponse) commandLine.read();
 
+                    if(numberOfShips.getCount(response.getLength()) < 1){
+                        System.out.println("No ship of that length available. Please try again.");
+                        continue;
+                    }
+
                     newShip = shipFactory.launch(response.getShipName(), response.getFirstCoord(), response.getSecondCoord(), response.getLength());
                     System.out.println("ship:" + response.getShipName() + " created");
 
                     if (ShipValidator.validate(newShip, ships)) {
                         ships.add(newShip);
-                        numberOfShips.remove(newShip.getOriginalLength(),1);
+                        numberOfShips.remove(newShip.getOriginalLength(), 1);
                         System.out.println("Ship added: " + newShip.getName());
                         boardDisplay.printShipsSetup(ships);
 
@@ -75,6 +79,15 @@ public class ShipSetup implements ShipSetupInterface {
 
 
         }
+
+        GameState gameState = gameStateService.getState();
+        gameState.playerHumanBoard.setShips(ships);
+        gameStateService.updateState(gameState);
+
+        System.out.println("Thank you! Now wait for your enemy to setup");
+
+        boardDisplay.printBothBoards();
+
 
     }
 
