@@ -38,9 +38,8 @@ public class Dockyard implements ShipFactory {
         positions.add(new Coordinate(further));
 
         while (length > 0){
-            positions.add(Coordinate.of(further.getRow()+rowInc, further.getColumn()+colInc));
-            rowInc+=rowInc;
-            colInc+=colInc;
+            Coordinate c = Coordinate.of(further.getRow()+(rowInc*length), further.getColumn()+(colInc*length));
+            positions.add(c);
             length--;
         }
 
