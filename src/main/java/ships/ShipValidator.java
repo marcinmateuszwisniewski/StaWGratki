@@ -1,9 +1,8 @@
-package Ships;
+package ships;
 
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ShipValidator {
     public static boolean validate (Ship shipToPut, Set<Ship> shipSet){

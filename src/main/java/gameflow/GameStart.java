@@ -1,8 +1,8 @@
-package GameFlow;
+package gameflow;
 
-import GameState.GameState;
-import GameState.GameStateService;
-import UserInput.StartGameCommandLine;
+import gamestate.GameState;
+import gamestate.GameStateService;
+import userinput.StartGameCommandLine;
 
 public class GameStart {
 

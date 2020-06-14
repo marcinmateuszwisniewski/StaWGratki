@@ -21,7 +21,7 @@ Ok, ok...
 
 - [ ] Game init: player names
 - [ ] Game init: empty board
-- [ ] Rules of Ships Placing
+- [ ] Rules of ships Placing
 - [ ] AI modes: choose creational pattern (or Strategy?)
 - [ ] main loop: make end turn conditions
 - [ ] main loop: shooting rules (again: which pattern?)

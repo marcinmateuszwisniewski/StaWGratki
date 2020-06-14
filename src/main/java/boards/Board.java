@@ -1,7 +1,7 @@
-package Boards;
+package boards;
 
-import Ships.Ship;
-import Ships.Coordinate;
+import ships.Ship;
+import ships.Coordinate;
 
 import java.util.HashSet;
 import java.util.Set;

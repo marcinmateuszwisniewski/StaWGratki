@@ -1,4 +1,4 @@
-package UserInput;
+package userinput;
 
 public interface CommandLineResponse {
 }

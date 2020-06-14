@@ -1,16 +1,13 @@
-package GameFlow;
+package gameflow;
 
-import Boards.Board;
-import Boards.BoardDisplay;
-import Boards.BoardValidator;
-import GameState.GameState;
-import GameState.GameStateService;
-import Ships.Ship;
-import Ships.ShipFactory;
-import Ships.ShipValidator;
-import UserInput.CommandLineInterface;
-import UserInput.ShipSetupCommandLine;
-import UserInput.ShipSetupResponse;
+import boards.BoardDisplay;
+import gamestate.GameState;
+import gamestate.GameStateService;
+import ships.Ship;
+import ships.ShipFactory;
+import ships.ShipValidator;
+import userinput.CommandLineInterface;
+import userinput.ShipSetupResponse;
 import org.apache.commons.collections4.Bag;
 import org.apache.commons.collections4.bag.HashBag;
 
@@ -92,7 +89,7 @@ public class ShipSetup implements ShipSetupInterface {
     }
 
     private void printNumberOfShipsLeft(Bag<Integer> numberOfShips) {
-        System.out.println("Ships left to set on board:");
+        System.out.println("ships left to set on board:");
         numberOfShips.uniqueSet().forEach(x -> System.out.println(x + ": " + numberOfShips.getCount(x)));
     }
 }

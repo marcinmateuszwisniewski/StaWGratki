@@ -1,4 +1,4 @@
-package Boards;
+package boards;
 
 public class BoardService implements BoardServiceInterface {
     public boolean shootAt(String row, int column, Board board) {

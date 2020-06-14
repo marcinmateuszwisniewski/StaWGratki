@@ -1,6 +1,6 @@
-package UserInput;
+package userinput;
 
-import Ships.Coordinate;
+import ships.Coordinate;
 
 public class ShipSetupResponse implements CommandLineResponse {
 

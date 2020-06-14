@@ -1,4 +1,4 @@
-package Boards;
+package boards;
 
 public interface BoardServiceInterface {
 

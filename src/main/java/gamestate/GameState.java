@@ -1,6 +1,6 @@
-package GameState;
+package gamestate;
 
-import Boards.Board;
+import boards.Board;
 
 public class GameState {
     public String playerHumanName;
@@ -12,8 +12,8 @@ public class GameState {
     GameState(String playerName, String aiName){
         this.playerHumanName = playerName;
         this.playerAIName = aiName;
-        this.playerAIBoard = Boards.BoardService.newBoard();
-        this.playerHumanBoard = Boards.BoardService.newBoard();
+        this.playerAIBoard = boards.BoardService.newBoard();
+        this.playerHumanBoard = boards.BoardService.newBoard();
 
     }
 

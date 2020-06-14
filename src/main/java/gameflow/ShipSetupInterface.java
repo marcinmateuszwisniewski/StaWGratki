@@ -1,4 +1,4 @@
-package GameFlow;
+package gameflow;
 
 public interface ShipSetupInterface {
     void setup();

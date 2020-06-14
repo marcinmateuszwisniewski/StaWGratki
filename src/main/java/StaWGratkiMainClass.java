@@ -1,12 +1,12 @@
-import Boards.BoardDisplay;
-import GameFlow.GameStart;
-import GameFlow.ShipSetup;
-import GameFlow.ShipSetupInterface;
-import GameState.GameStateService;
-import Ships.Dockyard;
-import UserInput.CoordinateParser;
-import UserInput.ShipSetupCommandLine;
-import UserInput.StartGameCommandLine;
+import boards.BoardDisplay;
+import gameflow.GameStart;
+import gameflow.ShipSetup;
+import gameflow.ShipSetupInterface;
+import gamestate.GameStateService;
+import ships.Dockyard;
+import userinput.CoordinateParser;
+import userinput.ShipSetupCommandLine;
+import userinput.StartGameCommandLine;
 
 import java.util.Scanner;
 

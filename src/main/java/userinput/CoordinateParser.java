@@ -1,7 +1,7 @@
-package UserInput;
+package userinput;
 
-import Constants.GameConstants;
-import Ships.Coordinate;
+import constants.GameConstants;
+import ships.Coordinate;
 
 public class CoordinateParser implements CoordinatesParsing {
 

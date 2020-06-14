@@ -1,10 +1,10 @@
-package Boards;
+package boards;
 
-import Constants.GameConstants;
-import GameState.GameState;
-import GameState.GameStateService;
-import Ships.Coordinate;
-import Ships.Ship;
+import constants.GameConstants;
+import gamestate.GameState;
+import gamestate.GameStateService;
+import ships.Coordinate;
+import ships.Ship;
 
 import java.util.Collection;
 import java.util.Set;

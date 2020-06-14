@@ -1,4 +1,4 @@
-package Ships;
+package ships;
 
 import java.util.HashSet;
 import java.util.Set;

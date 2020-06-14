@@ -1,6 +1,6 @@
-package UserInput;
+package userinput;
 
-import Ships.Coordinate;
+import ships.Coordinate;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
