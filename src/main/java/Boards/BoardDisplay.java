@@ -1,6 +1,7 @@
 package Boards;
 
 import Constants.GameConstants;
+import GameState.GameState;
 import GameState.GameStateService;
 import Ships.Coordinate;
 import Ships.Ship;
@@ -16,8 +17,14 @@ public class BoardDisplay {
     }
 
     public void printBothBoards(){
-        displayBoard(gameStateService.getState().playerHumanBoard);
-        displayBoard(gameStateService.getState().playerAIBoard);
+
+        //TODO: Wyświetlać je obok?
+
+        GameState state = gameStateService.getState();
+        System.out.println(state.playerHumanName);
+        displayBoard(state.playerHumanBoard);
+        System.out.println(state.playerAIName);
+        displayBoard(state.playerAIBoard);
     }
 
     public void printShipsSetup(Set<Ship> ships){
