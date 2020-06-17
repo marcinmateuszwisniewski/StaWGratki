@@ -15,10 +15,10 @@ import java.util.HashSet;
 
 public class ShipSetup implements ShipSetupInterface {
 
-    private CommandLineInterface commandLine;
-    private GameStateService gameStateService;
-    private ShipFactory shipFactory;
-    private BoardDisplay boardDisplay;
+    private final CommandLineInterface commandLine;
+    private final GameStateService gameStateService;
+    private final ShipFactory shipFactory;
+    private final BoardDisplay boardDisplay;
 
     public ShipSetup(CommandLineInterface commandLine, GameStateService gameStateService, ShipFactory shipFactory, BoardDisplay bd) {
         this.commandLine = commandLine;

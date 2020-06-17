@@ -5,7 +5,13 @@ import ships.Coordinate;
 
 public class CoordinateParser implements CoordinatesParsing {
 
-    public CoordinateParser(){
+    private BoardSize boardSize;
+
+    private CoordinateParser(){}
+
+    public CoordinateParser(BoardSize size){
+
+        this.boardSize = size;
 
     }
 
@@ -21,9 +27,9 @@ public class CoordinateParser implements CoordinatesParsing {
             throw new IllegalArgumentException("column of: "+coordinate+" is not a number");
         }
 
-        if (row < 0 || row >= BoardSize.STANDARD.size)
+        if (row < 0 || row >= boardSize.value)
             throw new IllegalArgumentException("wrong row:" + coordinate);
-        if (column < 0 || column >= BoardSize.STANDARD.size)
+        if (column < 0 || column >= boardSize.value)
             throw new IllegalArgumentException("wrong column:" + coordinate);
 
         return Coordinate.of(row, column);

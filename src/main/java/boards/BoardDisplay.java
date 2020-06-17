@@ -12,8 +12,10 @@ import java.util.stream.Collectors;
 
 public class BoardDisplay {
     private GameStateService gameStateService;
-    public BoardDisplay(GameStateService gameStateService){
+    private BoardSize boardSize;
+    public BoardDisplay(GameStateService gameStateService, BoardSize size){
         this.gameStateService = gameStateService;
+        this.boardSize = size;
     }
 
     public void printBothBoards(){
@@ -52,9 +54,9 @@ public class BoardDisplay {
     }
 
     private void printGrid(char[][] grid) {
-        for(int i = 0; i< BoardSize.STANDARD.size; i++){
+        for(int i = 0; i< boardSize.value; i++){
             System.out.print((char)(i+65));
-            for (int j = 0; j < BoardSize.STANDARD.size; j++) {
+            for (int j = 0; j < boardSize.value; j++) {
                 System.out.print(String.format(" %c ",grid[i][j]));
             }
             System.out.println();
@@ -62,10 +64,10 @@ public class BoardDisplay {
     }
 
     private char[][] getEmptyGrid() {
-        char[][] grid = new char[BoardSize.STANDARD.size][BoardSize.STANDARD.size];
+        char[][] grid = new char[boardSize.value][boardSize.value];
 
-        for(int i = 0; i< BoardSize.STANDARD.size; i++){
-            for (int j = 0; j < BoardSize.STANDARD.size; j++) {
+        for(int i = 0; i< boardSize.value; i++){
+            for (int j = 0; j < boardSize.value; j++) {
                 grid[i][j] = '-';
             }
         }

@@ -1,4 +1,5 @@
 import boards.BoardDisplay;
+import constants.BoardSize;
 import gameflow.GameStart;
 import gameflow.ShipSetup;
 import gameflow.ShipSetupInterface;
@@ -20,9 +21,15 @@ public class StaWGratkiMainClass {
       Scanner scanner = new Scanner(System.in);
       GameStart gameStart = new GameStart(new StartGameCommandLine(scanner),gs);
       gameStart.init();
-      BoardDisplay bd = new BoardDisplay(gs);
+      final BoardDisplay bd = new BoardDisplay(gs,BoardSize.STANDARD);
       bd.printBothBoards();
-      ShipSetupInterface setup = new ShipSetup(new ShipSetupCommandLine(new CoordinateParser()),gs,new Dockyard(),bd);
+      final Dockyard shipFactory = new Dockyard(BoardSize.STANDARD);
+      final CoordinateParser parser = new CoordinateParser(BoardSize.STANDARD);
+      final ShipSetupCommandLine commandLine = new ShipSetupCommandLine(parser);
+      final ShipSetupInterface setup = new ShipSetup(commandLine,
+              gs,
+              shipFactory,
+              bd);
       setup.setup();
 
         

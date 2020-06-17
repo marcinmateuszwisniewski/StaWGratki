@@ -4,9 +4,9 @@ public enum BoardSize {
 
     STANDARD(10);
 
-    public int size;
+    public int value;
 
-    BoardSize(int size) {
-        this.size = size;
+    BoardSize(int value) {
+        this.value = value;
     }
 }

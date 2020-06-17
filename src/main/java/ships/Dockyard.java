@@ -1,9 +1,20 @@
 package ships;
 
+import constants.BoardSize;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class Dockyard implements ShipFactory {
+
+    private BoardSize boardSize;
+
+    private Dockyard(){}
+
+    public Dockyard(BoardSize size){
+        this.boardSize = size;
+    }
+
     public Ship launch(Set<Ship> shipSet, Coordinate first, Coordinate further, int length) {
 
         //shipSet.forEach(ship -> ship.);
@@ -38,7 +49,13 @@ public class Dockyard implements ShipFactory {
         positions.add(new Coordinate(further));
 
         while (length > 0){
-            Coordinate c = Coordinate.of(further.getRow()+(rowInc*length), further.getColumn()+(colInc*length));
+            final int newRow = further.getRow() + (rowInc * length);
+            final int newColumn = further.getColumn() + (colInc * length);
+
+            if(newRow >= boardSize.value || newColumn >= boardSize.value || newRow < 0 || newColumn < 0)
+                throw new IllegalArgumentException("Ship don't fit into the board");
+
+            Coordinate c = Coordinate.of(newRow, newColumn);
             positions.add(c);
             length--;
         }
