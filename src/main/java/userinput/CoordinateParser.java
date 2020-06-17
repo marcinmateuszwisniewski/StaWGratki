@@ -1,6 +1,6 @@
 package userinput;
 
-import constants.GameConstants;
+import constants.BoardSize;
 import ships.Coordinate;
 
 public class CoordinateParser implements CoordinatesParsing {
@@ -21,9 +21,9 @@ public class CoordinateParser implements CoordinatesParsing {
             throw new IllegalArgumentException("column of: "+coordinate+" is not a number");
         }
 
-        if (row < 0 || row >= GameConstants.BOARD_SIZE)
+        if (row < 0 || row >= BoardSize.STANDARD.size)
             throw new IllegalArgumentException("wrong row:" + coordinate);
-        if (column < 0 || column >= GameConstants.BOARD_SIZE)
+        if (column < 0 || column >= BoardSize.STANDARD.size)
             throw new IllegalArgumentException("wrong column:" + coordinate);
 
         return Coordinate.of(row, column);

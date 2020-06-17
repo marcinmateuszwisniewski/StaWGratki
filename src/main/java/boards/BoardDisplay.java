@@ -1,6 +1,6 @@
 package boards;
 
-import constants.GameConstants;
+import constants.BoardSize;
 import gamestate.GameState;
 import gamestate.GameStateService;
 import ships.Coordinate;
@@ -52,9 +52,9 @@ public class BoardDisplay {
     }
 
     private void printGrid(char[][] grid) {
-        for(int i = 0; i< GameConstants.BOARD_SIZE; i++){
+        for(int i = 0; i< BoardSize.STANDARD.size; i++){
             System.out.print((char)(i+65));
-            for (int j = 0; j < GameConstants.BOARD_SIZE; j++) {
+            for (int j = 0; j < BoardSize.STANDARD.size; j++) {
                 System.out.print(String.format(" %c ",grid[i][j]));
             }
             System.out.println();
@@ -62,10 +62,10 @@ public class BoardDisplay {
     }
 
     private char[][] getEmptyGrid() {
-        char[][] grid = new char[GameConstants.BOARD_SIZE][GameConstants.BOARD_SIZE];
+        char[][] grid = new char[BoardSize.STANDARD.size][BoardSize.STANDARD.size];
 
-        for(int i = 0; i<GameConstants.BOARD_SIZE; i++){
-            for (int j = 0; j < GameConstants.BOARD_SIZE; j++) {
+        for(int i = 0; i< BoardSize.STANDARD.size; i++){
+            for (int j = 0; j < BoardSize.STANDARD.size; j++) {
                 grid[i][j] = '-';
             }
         }
