@@ -23,26 +23,34 @@ public class Board {
 
     public Board copy() {
         Board copyBoard = new Board();
-        ships.forEach(ship -> copyBoard.ships.add(new Ship(ship)));
+        copyBoard.ships = getShips();
         copyBoard.hits = getHits();
         copyBoard.missed = getMissed();
         return copyBoard;
     }
 
     public Set<Coordinate> getHits() {
-        HashSet<Coordinate> coordinates = new HashSet<>();
-        hits.forEach(h -> coordinates.add(new Coordinate(h)));
-        return coordinates;
+        return new HashSet<>(hits);
     }
 
     public Set<Coordinate> getMissed() {
-        HashSet<Coordinate> coordinates = new HashSet<>();
-        missed.forEach(h -> coordinates.add(new Coordinate(h)));
-        return coordinates;
+        return new HashSet<>(missed);
+
     }
 
+    public Set<Ship> getShips() {
+        return new HashSet<>(ships);
+    }
 
     public void setShips(Set<Ship> ships) {
         this.ships = ships;
+    }
+
+    public void setHits(Set<Coordinate> hits) {
+        this.hits = hits;
+    }
+
+    public void setMissed(Set<Coordinate> missed) {
+        this.missed = missed;
     }
 }
