@@ -1,5 +1,6 @@
 import boards.BoardDisplay;
 import constants.BoardSize;
+import constants.ShipRoster;
 import gameflow.GameStart;
 import gameflow.ShipSetup;
 import gameflow.ShipSetupInterface;
@@ -26,10 +27,13 @@ public class StaWGratkiMainClass {
       final Dockyard shipFactory = new Dockyard(BoardSize.STANDARD);
       final CoordinateParser parser = new CoordinateParser(BoardSize.STANDARD);
       final ShipSetupCommandLine commandLine = new ShipSetupCommandLine(parser);
+      final ShipRoster shipRoster = ShipRoster.STANDARD;
+      //TODO: too many arguments.
       final ShipSetupInterface setup = new ShipSetup(commandLine,
               gs,
               shipFactory,
-              bd);
+              bd,
+              shipRoster);
       setup.setup();
 
         

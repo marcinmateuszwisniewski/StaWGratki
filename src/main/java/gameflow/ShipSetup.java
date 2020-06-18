@@ -1,6 +1,7 @@
 package gameflow;
 
 import boards.BoardDisplay;
+import constants.ShipRoster;
 import gamestate.GameState;
 import gamestate.GameStateService;
 import ships.Ship;
@@ -9,7 +10,6 @@ import ships.ShipValidator;
 import userinput.CommandLineInterface;
 import userinput.ShipSetupResponse;
 import org.apache.commons.collections4.Bag;
-import org.apache.commons.collections4.bag.HashBag;
 
 import java.util.HashSet;
 
@@ -19,12 +19,14 @@ public class ShipSetup implements ShipSetupInterface {
     private final GameStateService gameStateService;
     private final ShipFactory shipFactory;
     private final BoardDisplay boardDisplay;
+    private final ShipRoster shipRoster;
 
-    public ShipSetup(CommandLineInterface commandLine, GameStateService gameStateService, ShipFactory shipFactory, BoardDisplay bd) {
+    public ShipSetup(CommandLineInterface commandLine, GameStateService gameStateService, ShipFactory shipFactory, BoardDisplay bd, ShipRoster sr) {
         this.commandLine = commandLine;
         this.gameStateService = gameStateService;
         this.shipFactory = shipFactory;
         this.boardDisplay = bd;
+        this.shipRoster = sr;
     }
 
 
@@ -33,11 +35,7 @@ public class ShipSetup implements ShipSetupInterface {
 
         HashSet<Ship> ships = new HashSet<>();
 
-        Bag<Integer> numberOfShips = new HashBag<>();
-        numberOfShips.add(5);
-        numberOfShips.add(4);
-        numberOfShips.add(3);
-        numberOfShips.add(2, 2);
+        Bag<Integer> numberOfShips = shipRoster.value();
 
         while (!numberOfShips.isEmpty()) {
 
