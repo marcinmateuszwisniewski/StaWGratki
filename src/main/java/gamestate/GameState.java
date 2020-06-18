@@ -3,17 +3,17 @@ package gamestate;
 import boards.Board;
 
 public class GameState {
-    public String playerHumanName;
-    public String playerAIName;
-    public Board playerHumanBoard;
-    public Board playerAIBoard;
+    public String playerOneName;
+    public String playerTwoName;
+    public Board playerOneBoard;
+    public Board playerTwoBoard;
 
 
     GameState(String playerName, String aiName){
-        this.playerHumanName = playerName;
-        this.playerAIName = aiName;
-        this.playerAIBoard = boards.BoardService.newBoard();
-        this.playerHumanBoard = boards.BoardService.newBoard();
+        this.playerOneName = playerName;
+        this.playerTwoName = aiName;
+        this.playerTwoBoard = boards.BoardService.newBoard();
+        this.playerOneBoard = boards.BoardService.newBoard();
 
     }
 
@@ -23,9 +23,9 @@ public class GameState {
 
     public GameState copy() {
 
-        GameState copy = new GameState(this.playerHumanName,this.playerAIName);
-        copy.playerHumanBoard = playerHumanBoard.copy();
-        copy.playerAIBoard = playerAIBoard.copy();
+        GameState copy = new GameState(this.playerOneName,this.playerTwoName);
+        copy.playerOneBoard = playerOneBoard.copy();
+        copy.playerTwoBoard = playerTwoBoard.copy();
         return copy;
     }
 }

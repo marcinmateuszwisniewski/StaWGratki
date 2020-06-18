@@ -33,7 +33,7 @@ public class HumanControlledShipSetup implements ShipSetupInterface {
     @Override
     public void setupFirstPlayer(){
         GameState gameState = gameStateService.getState();
-        gameState.playerHumanBoard.setShips(getShips());
+        gameState.playerOneBoard.setShips(getShips());
         gameStateService.updateState(gameState);
         System.out.println("Thank you! Now wait for your enemy to setup");
     }
@@ -41,7 +41,7 @@ public class HumanControlledShipSetup implements ShipSetupInterface {
     @Override
     public void setupSecondPlayer(){
         GameState gameState = gameStateService.getState();
-        gameState.playerAIBoard.setShips(getShips());
+        gameState.playerTwoBoard.setShips(getShips());
         gameStateService.updateState(gameState);
         System.out.println("Thank you! Now wait for your enemy to setup");
     }

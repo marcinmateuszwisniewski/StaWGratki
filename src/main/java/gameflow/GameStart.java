@@ -17,9 +17,9 @@ public class GameStart {
     public void init(){
         GameState gameState = stateService.getState();
         System.out.println("Tell your name");
-        gameState.playerHumanName = commandLine.read();
+        gameState.playerOneName = commandLine.read();
         System.out.println("Name opponent");
-        gameState.playerAIName = commandLine.read();
+        gameState.playerTwoName = commandLine.read();
         stateService.updateState(gameState);
 
     }
