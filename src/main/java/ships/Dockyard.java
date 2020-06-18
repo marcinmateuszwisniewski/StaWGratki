@@ -37,7 +37,7 @@ public class Dockyard implements ShipFactory {
         if(first.isWestTo(further)){
             colInc += 1;
         }
-        if(first.isSouthTo(further)){
+        if(first.isEastTo(further)){
             colInc -= 1;
         }
 
