@@ -54,6 +54,11 @@ public class BoardDisplay {
     }
 
     private void printGrid(char[][] grid) {
+        System.out.print(' ');
+        for(int i = 0; i< boardSize.value;i++){
+            System.out.print(String.format(" %d ",i));
+        }
+        System.out.println();
         for(int i = 0; i< boardSize.value; i++){
             System.out.print((char)(i+65));
             for (int j = 0; j < boardSize.value; j++) {
