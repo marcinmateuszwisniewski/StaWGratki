@@ -12,8 +12,9 @@ import userinput.ShipSetupResponse;
 import org.apache.commons.collections4.Bag;
 
 import java.util.HashSet;
+import java.util.Set;
 
-public class ShipSetup implements ShipSetupInterface {
+public class HumanControlledShipSetup implements ShipSetupInterface {
 
     private final CommandLineInterface commandLine;
     private final GameStateService gameStateService;
@@ -21,7 +22,7 @@ public class ShipSetup implements ShipSetupInterface {
     private final BoardDisplay boardDisplay;
     private final ShipRoster shipRoster;
 
-    public ShipSetup(CommandLineInterface commandLine, GameStateService gameStateService, ShipFactory shipFactory, BoardDisplay bd, ShipRoster sr) {
+    public HumanControlledShipSetup(CommandLineInterface commandLine, GameStateService gameStateService, ShipFactory shipFactory, BoardDisplay bd, ShipRoster sr) {
         this.commandLine = commandLine;
         this.gameStateService = gameStateService;
         this.shipFactory = shipFactory;
@@ -29,9 +30,30 @@ public class ShipSetup implements ShipSetupInterface {
         this.shipRoster = sr;
     }
 
+    @Override
+    public void setupFirstPlayer(){
+        GameState gameState = gameStateService.getState();
+        gameState.playerHumanBoard.setShips(getShips());
+        gameStateService.updateState(gameState);
+        System.out.println("Thank you! Now wait for your enemy to setup");
+    }
 
     @Override
-    public void setup() {
+    public void setupSecondPlayer(){
+        GameState gameState = gameStateService.getState();
+        gameState.playerAIBoard.setShips(getShips());
+        gameStateService.updateState(gameState);
+        System.out.println("Thank you! Now wait for your enemy to setup");
+    }
+
+    @Override
+    public void setup(){
+        setupFirstPlayer();
+    }
+
+
+
+    private Set<Ship> getShips() {
 
         HashSet<Ship> ships = new HashSet<>();
 
@@ -75,13 +97,10 @@ public class ShipSetup implements ShipSetupInterface {
 
         }
 
-        GameState gameState = gameStateService.getState();
-        gameState.playerHumanBoard.setShips(ships);
-        gameStateService.updateState(gameState);
+        return ships;
 
-        System.out.println("Thank you! Now wait for your enemy to setup");
 
-        boardDisplay.printBothBoards();
+
 
 
     }

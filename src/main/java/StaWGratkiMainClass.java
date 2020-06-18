@@ -2,7 +2,7 @@ import boards.BoardDisplay;
 import constants.BoardSize;
 import constants.ShipRoster;
 import gameflow.GameStart;
-import gameflow.ShipSetup;
+import gameflow.HumanControlledShipSetup;
 import gameflow.ShipSetupInterface;
 import gamestate.GameStateService;
 import ships.Dockyard;
@@ -29,7 +29,7 @@ public class StaWGratkiMainClass {
       final ShipSetupCommandLine commandLine = new ShipSetupCommandLine(parser);
       final ShipRoster shipRoster = ShipRoster.STANDARD;
       //TODO: too many arguments.
-      final ShipSetupInterface setup = new ShipSetup(commandLine,
+      final ShipSetupInterface setup = new HumanControlledShipSetup(commandLine,
               gs,
               shipFactory,
               bd,
