@@ -1,7 +1,7 @@
 package gameflow;
 
+import constants.Player;
+
 public interface ShipSetupInterface {
-    void setup();
-    void setupFirstPlayer();
-    void setupSecondPlayer();
+    void setup(Player player);
 }

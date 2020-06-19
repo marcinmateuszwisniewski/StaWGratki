@@ -1,5 +1,6 @@
 import boards.BoardDisplay;
 import constants.BoardSize;
+import constants.Player;
 import constants.ShipRoster;
 import gameflow.GameStart;
 import gameflow.HumanControlledShipSetup;
@@ -34,7 +35,7 @@ public class StaWGratkiMainClass {
               shipFactory,
               bd,
               shipRoster);
-      setup.setup();
+      setup.setup(Player.ONE);
 
         
     }
