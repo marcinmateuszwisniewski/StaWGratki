@@ -3,6 +3,7 @@ package ships;
 import java.util.HashSet;
 import java.util.Set;
 
+// popraw sobie strukturę - zmienne do góry, metody na dół, a gettery i settery najlepiej lombok jak wspominałem (patrz @Data)
 public class Ship {
 
     Set<Coordinate> position = new HashSet<>();

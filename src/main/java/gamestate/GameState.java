@@ -3,6 +3,8 @@ package gamestate;
 import boards.Board;
 
 public class GameState {
+    // może zamiast robienia osobnych pól, pokuś się o klasę Player - która będzie miała imię gracza i stan jego planszy
+
     public String playerOneName;
     public String playerTwoName;
     public Board playerOneBoard;

@@ -5,6 +5,8 @@ import constants.BoardSize;
 import java.util.HashSet;
 import java.util.Set;
 
+
+// Dockyard <3
 public class Dockyard implements ShipFactory {
 
     private BoardSize boardSize;

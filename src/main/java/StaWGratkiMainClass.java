@@ -17,6 +17,9 @@ import java.util.Scanner;
  *
  */
 public class StaWGratkiMainClass {
+
+  // tak jak napisałeś w TODO - przenieś większość do jakiegoś serwisu sensownego, zrób statyczną fabrykę, żeby nie walić tutaj jakiejś strasznej ilości
+  // argumentów
     public static void main(String[] args) {
       System.out.println("srawg(t)atki");
       GameStateService gs = new GameStateService();

@@ -31,6 +31,8 @@ public class HumanControlledShipSetup implements ShipSetupInterface {
         this.shipRoster = sr;
     }
 
+
+    // Pisanie ifów bez {} jest kuszące i Java to wspiera, ale nadal good practice naleca używanie nawiasów :( (sam ich nie lubię w opór)
     @Override
     public void setup(Player player){
         GameState gameState = gameStateService.getState();
