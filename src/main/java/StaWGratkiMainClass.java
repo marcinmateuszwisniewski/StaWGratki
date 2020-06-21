@@ -2,9 +2,7 @@ import boards.BoardDisplay;
 import constants.BoardSize;
 import constants.Player;
 import constants.ShipRoster;
-import gameflow.GameStart;
-import gameflow.HumanControlledShipSetup;
-import gameflow.ShipSetupInterface;
+import gameflow.*;
 import gamestate.GameStateService;
 import ships.Dockyard;
 import userinput.CoordinateParser;
@@ -23,18 +21,9 @@ public class StaWGratkiMainClass {
       Scanner scanner = new Scanner(System.in);
       GameStart gameStart = new GameStart(new StartGameCommandLine(scanner),gs);
       gameStart.init();
-      final BoardDisplay bd = new BoardDisplay(gs,BoardSize.STANDARD);
-      bd.printBothBoards();
-      final Dockyard shipFactory = new Dockyard(BoardSize.STANDARD);
-      final CoordinateParser parser = new CoordinateParser(BoardSize.STANDARD);
-      final ShipSetupCommandLine commandLine = new ShipSetupCommandLine(parser);
-      final ShipRoster shipRoster = ShipRoster.STANDARD;
+      final BoardDisplay bd = new BoardDisplay(gs, BoardSize.STANDARD);
       //TODO: too many arguments.
-      final ShipSetupInterface setup = new HumanControlledShipSetup(commandLine,
-              gs,
-              shipFactory,
-              bd,
-              shipRoster);
+      final ShipSetupInterface setup = new HumanControlledShipSetup(ShipSetupArgumentsProvider.getStandardHumanArgs(), gs, bd);
       setup.setup(Player.ONE);
 
         

@@ -23,12 +23,12 @@ public class HumanControlledShipSetup implements ShipSetupInterface {
     private final BoardDisplay boardDisplay;
     private final ShipRoster shipRoster;
 
-    public HumanControlledShipSetup(CommandLineInterface commandLine, GameStateService gameStateService, ShipFactory shipFactory, BoardDisplay bd, ShipRoster sr) {
-        this.commandLine = commandLine;
-        this.gameStateService = gameStateService;
-        this.shipFactory = shipFactory;
-        this.boardDisplay = bd;
-        this.shipRoster = sr;
+    public HumanControlledShipSetup(ShipSetupArguments shipSetupArguments, GameStateService gs, BoardDisplay bd) {
+        commandLine = shipSetupArguments.getCommandLine();
+        shipFactory = shipSetupArguments.getShipFactory();
+        shipRoster = shipSetupArguments.getShipRoster();
+        gameStateService = gs;
+        boardDisplay = bd;
     }
 
     @Override
