@@ -19,7 +19,7 @@ EVERYTHING! (incl. tests).
 
 Ok, ok...
 
-- [ ] Game init: player names
+- [ ] Game init: playerEnum names
 - [ ] Game init: empty board
 - [ ] Rules of ships Placing
 - [ ] AI modes: choose creational pattern (or Strategy?)

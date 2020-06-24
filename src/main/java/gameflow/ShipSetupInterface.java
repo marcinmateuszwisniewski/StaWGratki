@@ -1,7 +1,7 @@
 package gameflow;
 
-import constants.Player;
+import constants.PlayerEnum;
 
 public interface ShipSetupInterface {
-    void setup(Player player);
+    void setup(PlayerEnum playerEnum);
 }

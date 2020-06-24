@@ -23,10 +23,10 @@ public class BoardDisplay {
         //TODO: Wyświetlać je obok?
 
         GameState state = gameStateService.getState();
-        System.out.println(state.playerOneName);
-        displayBoard(state.playerOneBoard);
-        System.out.println(state.playerTwoName);
-        displayBoard(state.playerTwoBoard);
+        System.out.println(state.getPlayerOne().getName());
+        displayBoard(state.getPlayerOne().getBoard());
+        System.out.println(state.getPlayerTwo().getName());
+        displayBoard(state.getPlayerTwo().getBoard());
     }
 
     public void printShipsSetup(Set<Ship> ships){

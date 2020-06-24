@@ -1,12 +1,8 @@
 import boards.BoardDisplay;
 import constants.BoardSize;
-import constants.Player;
-import constants.ShipRoster;
+import constants.PlayerEnum;
 import gameflow.*;
 import gamestate.GameStateService;
-import ships.Dockyard;
-import userinput.CoordinateParser;
-import userinput.ShipSetupCommandLine;
 import userinput.StartGameCommandLine;
 
 import java.util.Scanner;
@@ -24,7 +20,7 @@ public class StaWGratkiMainClass {
       final BoardDisplay bd = new BoardDisplay(gs, BoardSize.STANDARD);
       //TODO: too many arguments.
       final ShipSetupInterface setup = new HumanControlledShipSetup(ShipSetupArgumentsProvider.getStandardHumanArgs(), gs, bd);
-      setup.setup(Player.ONE);
+      setup.setup(PlayerEnum.ONE);
 
         
     }

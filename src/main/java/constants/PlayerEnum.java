@@ -1,5 +1,5 @@
 package constants;
 
-public enum Player {
+public enum PlayerEnum {
     ONE,TWO
 }

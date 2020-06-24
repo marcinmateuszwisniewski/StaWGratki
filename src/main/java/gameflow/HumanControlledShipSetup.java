@@ -1,7 +1,7 @@
 package gameflow;
 
 import boards.BoardDisplay;
-import constants.Player;
+import constants.PlayerEnum;
 import constants.ShipRoster;
 import gamestate.GameState;
 import gamestate.GameStateService;
@@ -32,12 +32,11 @@ public class HumanControlledShipSetup implements ShipSetupInterface {
     }
 
     @Override
-    public void setup(Player player){
+    public void setup(PlayerEnum playerEnum){
         GameState gameState = gameStateService.getState();
-        if(player == Player.ONE)
-            gameState.playerOneBoard.setShips(getShips());
-        else if(player == Player.TWO)
-            gameState.playerTwoBoard.setShips(getShips());
+
+        gameState.getPlayer(playerEnum).getBoard().setShips(getShips());
+
         gameStateService.updateState(gameState);
         System.out.println("Thank you! Now wait for your enemy to setup");
     }
