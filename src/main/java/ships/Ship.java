@@ -1,22 +1,21 @@
 package ships;
 
+import lombok.Setter;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class Ship {
 
-    Set<Coordinate> position = new HashSet<>();
-
-    public String getName() {
-        return name;
-    }
-
-    public int getOriginalLength() {
-        return originalLength;
-    }
-
+    @Setter private Set<Coordinate> position;
     private final String name;
     private final int originalLength;
+
+    private Ship(){
+        name = "FAIL";
+        originalLength = 0;
+    }
+
     private Ship(String name, int originalLength){
         this.name = name;
         this.originalLength = originalLength;
@@ -38,8 +37,20 @@ public class Ship {
 
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getOriginalLength() {
+        return originalLength;
+    }
+
     public HashSet<Coordinate> getPosition(){
         return new HashSet<>(position);
     }
+
+
+
+
 
 }
