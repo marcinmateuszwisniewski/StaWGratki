@@ -15,7 +15,7 @@ public class Coordinate {
     /**
      * This is static factory method, releasing coordinates.
      *
-     * @param row coordinate of row, zero-indexed
+     * @param row    coordinate of row, zero-indexed
      * @param column coordinate of column, zero-indexed
      * @return new immutable coordinate
      */
@@ -30,6 +30,7 @@ public class Coordinate {
 
     /**
      * Copy contructor.
+     *
      * @param c coordinate to copy.
      */
     public Coordinate(Coordinate c) {
@@ -37,36 +38,57 @@ public class Coordinate {
         this.column = c.getColumn();
     }
 
+    /**
+     * Gets row.
+     *
+     * @return the row
+     */
     public int getRow() {
         return row;
     }
 
+    /**
+     * Gets column.
+     *
+     * @return the column
+     */
     public int getColumn() {
         return column;
     }
 
     /**
+     * Is north to boolean.
+     *
      * @param c coordinate to proof
      * @return true, if this coordinates are "north" of c(ie. this coord touches c from above on grid), false otherwise
      */
     public boolean isNorthTo(Coordinate c) {
         return this.row == c.row - 1 && this.column == c.column;
     }
+
     /**
+     * Is south to boolean.
+     *
      * @param c coordinate to proof
      * @return true, if this coordinates are "south" of c(ie. this coord touches c from below on grid), false otherwise
      */
     public boolean isSouthTo(Coordinate c) {
         return this.row == c.row + 1 && this.column == c.column;
     }
+
     /**
+     * Is west to boolean.
+     *
      * @param c coordinate to proof
      * @return true, if this coordinates are "west" of c(ie. this coord touches left side of c on grid), false otherwise
      */
     public boolean isWestTo(Coordinate c) {
         return this.row == c.row && this.column + 1 == c.column;
     }
+
     /**
+     * Is east to boolean.
+     *
      * @param c coordinate to proof
      * @return true, if this coordinates are "east" of c(ie. this coord touches touches right side of c on grid), false otherwise
      */
@@ -89,6 +111,8 @@ public class Coordinate {
     }
 
     /**
+     * Is by boolean.
+     *
      * @param c coordinate to proof
      * @return true if c and this coordinate are touching themselves from any side, false otherwise
      */

@@ -10,14 +10,27 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * The type Board display.
+ */
 public class BoardDisplay {
     private GameStateService gameStateService;
     private BoardSize boardSize;
+
+    /**
+     * Instantiates a new Board display.
+     *
+     * @param gameStateService the game state service
+     * @param size             the size
+     */
     public BoardDisplay(GameStateService gameStateService, BoardSize size){
         this.gameStateService = gameStateService;
         this.boardSize = size;
     }
 
+    /**
+     * Print both boards.
+     */
     public void printBothBoards(){
 
         //TODO: Wyświetlać je obok?
@@ -29,6 +42,11 @@ public class BoardDisplay {
         displayBoard(state.getPlayerTwo().getBoard());
     }
 
+    /**
+     * Print ships setup.
+     *
+     * @param ships the ships
+     */
     public void printShipsSetup(Set<Ship> ships){
 
         Set<Coordinate> coordinates = ships.stream().map(Ship::getPosition).flatMap(Collection::stream).collect(Collectors.toSet());

@@ -5,6 +5,9 @@ import lombok.Setter;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The type Ship.
+ */
 public class Ship {
 
     @Setter private Set<Coordinate> position;
@@ -21,12 +24,25 @@ public class Ship {
         this.originalLength = originalLength;
     }
 
+    /**
+     * Instantiates a new Ship.
+     *
+     * @param name           the name
+     * @param position       the position
+     * @param originalLength the original length
+     */
     Ship(String name, Set<Coordinate> position, int originalLength){
         this.name = name;
+        this.position = new HashSet<>();
         position.forEach(coordinate -> this.position.add(new Coordinate(coordinate))); //skoro koordynaty są immutable?
         this.originalLength = originalLength;
     }
 
+    /**
+     * Instantiates a new Ship.
+     *
+     * @param ship the ship
+     */
     public Ship(Ship ship){
 
         HashSet<Coordinate> newPos = new HashSet<>();
@@ -37,14 +53,29 @@ public class Ship {
 
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets original length.
+     *
+     * @return the original length
+     */
     public int getOriginalLength() {
         return originalLength;
     }
 
+    /**
+     * Get position hash set.
+     *
+     * @return the hash set
+     */
     public HashSet<Coordinate> getPosition(){
         return new HashSet<>(position);
     }

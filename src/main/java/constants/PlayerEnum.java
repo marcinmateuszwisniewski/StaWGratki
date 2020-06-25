@@ -1,5 +1,15 @@
 package constants;
 
+/**
+ * The enum Player enum.
+ */
 public enum PlayerEnum {
-    ONE,TWO
+    /**
+     * One player enum.
+     */
+    ONE,
+    /**
+     * Two player enum.
+     */
+    TWO
 }

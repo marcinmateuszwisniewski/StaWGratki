@@ -5,16 +5,33 @@ import constants.BoardSize;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The type Dockyard.
+ */
 public class Dockyard implements ShipFactory {
 
     private BoardSize boardSize;
 
     private Dockyard(){}
 
+    /**
+     * Instantiates a new Dockyard.
+     *
+     * @param size the size
+     */
     public Dockyard(BoardSize size){
         this.boardSize = size;
     }
 
+    /**
+     * Launch ship.
+     *
+     * @param shipSet the ship set
+     * @param first   the first
+     * @param further the further
+     * @param length  the length
+     * @return the ship
+     */
     public Ship launch(Set<Ship> shipSet, Coordinate first, Coordinate further, int length) {
 
         //shipSet.forEach(ship -> ship.);
