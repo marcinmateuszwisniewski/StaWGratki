@@ -60,40 +60,18 @@ public class HumanControlledShipSetup implements ShipSetupInterface {
         Bag<Integer> numberOfShips = shipRoster.value();
 
         while (!numberOfShips.isEmpty()) {
+            Ship ship = getNextAvailableShip(numberOfShips);
 
-//TODO: Think about putting this into BoardDisplay or ShipSetupCommandLine
-            printNumberOfShipsLeft(numberOfShips);
-
-            Ship newShip = null;
-            while (newShip == null) {
-                try {
-
-                    ShipSetupResponse response;
-                    response = (ShipSetupResponse) commandLine.read();
-
-                    if(numberOfShips.getCount(response.getLength()) < 1){
-                        System.out.println("No ship of that length available. Please try again.");
-                        continue;
-                    }
-
-                    newShip = shipFactory.launch(response.getShipName(), response.getFirstCoord(), response.getSecondCoord(), response.getLength());
-                    System.out.println("ship:" + response.getShipName() + " created");
-
-                    if (ShipValidator.validate(newShip, ships)) {
-                        ships.add(newShip);
-                        numberOfShips.remove(newShip.getOriginalLength(), 1);
-                        System.out.println("Ship added: " + newShip.getName());
-                        boardDisplay.printShipsSetup(ships);
-
-                    }
-
-                } catch (IllegalArgumentException e) {
-                    System.out.println("Bad params" + e.getMessage() + " Provide correct input");
-                }
-
+            if (ShipValidator.validate(ship, ships)) {
+                ships.add(ship);
+                numberOfShips.remove(ship.getOriginalLength(), 1);
+                System.out.println("Ship added: " + ship.getName());
+                boardDisplay.printShipsSetup(ships);
 
             }
-
+            else {
+                System.out.println("Ship cannot be placed in this position. Try again.");
+            }
 
         }
 
@@ -103,6 +81,35 @@ public class HumanControlledShipSetup implements ShipSetupInterface {
 
 
 
+    }
+
+    private Ship getNextAvailableShip(Bag<Integer> numberOfShips) {
+        printNumberOfShipsLeft(numberOfShips);
+
+        Ship newShip = null;
+        while (newShip == null) {
+            try {
+
+                ShipSetupResponse response;
+                response = (ShipSetupResponse) commandLine.read();
+
+                if(numberOfShips.getCount(response.getLength()) < 1){
+                    System.out.println("No ship of that length available. Please try again.");
+                    continue;
+                }
+
+                newShip = shipFactory.launch(response.getShipName(), response.getFirstCoord(), response.getSecondCoord(), response.getLength());
+                System.out.println("ship:" + response.getShipName() + " created");
+
+                return newShip;
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("Bad params" + e.getMessage() + " Provide correct input");
+            }
+
+
+        }
+        return newShip;
     }
 
     private void printNumberOfShipsLeft(Bag<Integer> numberOfShips) {
