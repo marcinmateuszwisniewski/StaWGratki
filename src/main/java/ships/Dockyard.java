@@ -23,25 +23,15 @@ public class Dockyard implements ShipFactory {
         this.boardSize = size;
     }
 
-    /**
-     * Launch ship.
-     *
-     * @param shipSet the ship set
-     * @param first   the first
-     * @param further the further
-     * @param length  the length
-     * @return the ship
-     */
-    public Ship launch(Set<Ship> shipSet, Coordinate first, Coordinate further, int length) {
-
-        //shipSet.forEach(ship -> ship.);
-
-        return null;
-    }
-
     @Override
     public Ship launch(String name, Coordinate first, Coordinate further, int originalLength) {
         Set<Coordinate> positions = new HashSet<>();
+
+        if(first.getRow() >= boardSize.value || first.getColumn() >=boardSize.value
+                || further.getRow() >= boardSize.value || further.getColumn() >=boardSize.value ){
+            throw new IllegalArgumentException("Ship don't fit into the board");
+        }
+
         int length = originalLength - 2;
         int rowInc = 0;
         int colInc = 0;
