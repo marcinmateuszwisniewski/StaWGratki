@@ -6,9 +6,6 @@ import lombok.Data;
 import ships.ShipFactory;
 import userinput.CommandLineInterface;
 
-/**
- * The type Ship setup arguments.
- */
 @Data
 public class ShipSetupArguments {
     private final CommandLineInterface commandLine;

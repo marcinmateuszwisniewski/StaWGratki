@@ -7,15 +7,7 @@ import userinput.StartGameCommandLine;
 
 import java.util.Scanner;
 
-/**
- * The type Sta w gratki main class.
- */
 public class StaWGratkiMainClass {
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
     public static void main(String[] args) {
       System.out.println("srawg(t)atki");
       GameStateService gs = new GameStateService();

@@ -7,16 +7,8 @@ import ships.Dockyard;
 import userinput.CoordinateParser;
 import userinput.ShipSetupCommandLine;
 
-/**
- * The type Ship setup arguments provider.
- */
 public class ShipSetupArgumentsProvider {
 
-    /**
-     * Gets standard human args.
-     *
-     * @return the standard human args
-     */
     public static ShipSetupArguments getStandardHumanArgs() {
 
         final Dockyard shipFactory = new Dockyard(BoardSize.STANDARD);

@@ -6,18 +6,10 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-/**
- * The type Ship setup command line.
- */
 public class ShipSetupCommandLine implements CommandLineInterface {
     private final Scanner scanner = new Scanner(System.in);
     private final CoordinateParser parser;
 
-    /**
-     * Instantiates a new Ship setup command line.
-     *
-     * @param parser the parser
-     */
     public ShipSetupCommandLine(CoordinateParser parser) {
         this.parser = parser;
     }

@@ -3,20 +3,12 @@ package userinput;
 import constants.BoardSize;
 import ships.Coordinate;
 
-/**
- * The type Coordinate parser.
- */
 public class CoordinateParser implements CoordinatesParsing {
 
     private BoardSize boardSize;
 
     private CoordinateParser(){}
 
-    /**
-     * Instantiates a new Coordinate parser.
-     *
-     * @param size the size
-     */
     public CoordinateParser(BoardSize size){
 
         this.boardSize = size;

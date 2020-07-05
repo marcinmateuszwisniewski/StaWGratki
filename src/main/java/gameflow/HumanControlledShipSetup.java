@@ -15,9 +15,6 @@ import org.apache.commons.collections4.Bag;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The type Human controlled ship setup.
- */
 public class HumanControlledShipSetup implements ShipSetupInterface {
 
     private final CommandLineInterface commandLine;
@@ -26,13 +23,6 @@ public class HumanControlledShipSetup implements ShipSetupInterface {
     private final BoardDisplay boardDisplay;
     private final ShipRoster shipRoster;
 
-    /**
-     * Instantiates a new Human controlled ship setup.
-     *
-     * @param shipSetupArguments the ship setup arguments
-     * @param gs                 the gs
-     * @param bd                 the bd
-     */
     public HumanControlledShipSetup(ShipSetupArguments shipSetupArguments, GameStateService gs, BoardDisplay bd) {
         commandLine = shipSetupArguments.getCommandLine();
         shipFactory = shipSetupArguments.getShipFactory();

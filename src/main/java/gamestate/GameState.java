@@ -6,9 +6,6 @@ import constants.PlayerEnum;
 import lombok.Getter;
 import lombok.NonNull;
 
-/**
- * The type Game state.
- */
 public class GameState {
 
     @Getter
@@ -16,12 +13,6 @@ public class GameState {
     @Getter
     private Player playerTwo;
 
-    /**
-     * Get player player.
-     *
-     * @param player the player
-     * @return the player
-     */
     public Player getPlayer(@NonNull PlayerEnum player){
 
         if(player == PlayerEnum.ONE){
@@ -34,12 +25,6 @@ public class GameState {
     }
 
 
-    /**
-     * Instantiates a new Game state.
-     *
-     * @param playerName the player name
-     * @param aiName     the ai name
-     */
     GameState(String playerName, String aiName){
         playerOne = new Player(playerName,boards.BoardService.newBoard());
         playerTwo = new Player(aiName,boards.BoardService.newBoard());
@@ -51,11 +36,6 @@ public class GameState {
 
     }
 
-    /**
-     * Copy game state.
-     *
-     * @return the game state
-     */
     GameState copy() {
 
         GameState copy = new GameState();
