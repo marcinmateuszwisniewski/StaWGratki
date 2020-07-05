@@ -1,5 +1,6 @@
 package gameflow;
 
+import boards.Board;
 import boards.BoardDisplay;
 import constants.PlayerEnum;
 import constants.ShipRoster;
@@ -32,34 +33,37 @@ public class HumanControlledShipSetup implements ShipSetupInterface {
     }
 
     @Override
-    public void setup(PlayerEnum playerEnum){
+    public void setup(PlayerEnum playerEnum) {
         GameState gameState = gameStateService.getState();
 
-        gameState.getPlayer(playerEnum).getBoard().setShips(getShips());
+        final Board currentPlayerBoardFromState = getCurrentPlayerBoardFromState(playerEnum, gameState);
+        currentPlayerBoardFromState.setShips(getShips());
 
         gameStateService.updateState(gameState);
         System.out.println("Thank you! Now wait for your enemy to setup");
     }
 
+    private Board getCurrentPlayerBoardFromState(PlayerEnum playerEnum, GameState gameState) {
+        return gameState.getPlayer(playerEnum).getBoard();
+    }
 
 
     private Set<Ship> getShips() {
 
         HashSet<Ship> ships = new HashSet<>();
 
-        Bag<Integer> numberOfShips = shipRoster.value();
+        Bag<Integer> availableShips = shipRoster.value();
 
-        while (!numberOfShips.isEmpty()) {
-            Ship ship = getNextAvailableShip(numberOfShips);
+        while (!availableShips.isEmpty()) {
+            Ship ship = getNextAvailableShip(availableShips);
 
             if (ShipValidator.validate(ship, ships)) {
                 ships.add(ship);
-                numberOfShips.remove(ship.getOriginalLength(), 1);
-                System.out.println("Ship added: " + ship.getName());
+                countDownShipFromAvailableShipsRoster(availableShips, ship);
+                printAddedShipName(ship);
                 boardDisplay.printShipsSetup(ships);
 
-            }
-            else {
+            } else {
                 System.out.println("Ship cannot be placed in this position. Try again.");
             }
 
@@ -68,38 +72,53 @@ public class HumanControlledShipSetup implements ShipSetupInterface {
         return ships;
 
 
-
-
-
     }
 
-    private Ship getNextAvailableShip(Bag<Integer> numberOfShips) {
-        printNumberOfShipsLeft(numberOfShips);
+    private void printAddedShipName(Ship ship) {
+        System.out.println("Ship added: " + ship.getName());
+    }
+
+    private void countDownShipFromAvailableShipsRoster(Bag<Integer> numberOfShips, Ship ship) {
+        numberOfShips.remove(ship.getOriginalLength(), 1);
+    }
+
+    private Ship getNextAvailableShip(Bag<Integer> availableShips) {
+        printNumberOfShipsLeft(availableShips);
 
         Ship newShip = null;
         while (newShip == null) {
             try {
 
-                ShipSetupResponse response;
-                response = (ShipSetupResponse) commandLine.read();
+                ShipSetupResponse response = getResponseFromCommandLine();
 
-                if(numberOfShips.getCount(response.getLength()) < 1){
+                if (!isShipAvailable(availableShips, response)) {
                     System.out.println("No ship of that length available. Please try again.");
                     continue;
                 }
 
-                newShip = shipFactory.launch(response.getShipName(), response.getFirstCoord(), response.getSecondCoord(), response.getLength());
-                System.out.println("ship:" + response.getShipName() + " created");
-
-                return newShip;
+                newShip = shipFactory.launch(response.getShipName(), response.getFirstCoord(),
+                        response.getSecondCoord(), response.getLength());
+                printCreatedShip(response);
 
             } catch (IllegalArgumentException e) {
-                System.out.println("Bad params" + e.getMessage() + " Provide correct input");
+                System.out.println("Bad params: " + e.getMessage() + " Provide correct input");
             }
 
 
         }
         return newShip;
+    }
+
+    private ShipSetupResponse getResponseFromCommandLine() {
+        return (ShipSetupResponse) commandLine.read();
+    }
+
+    private void printCreatedShip(ShipSetupResponse response) {
+        System.out.println("ship:" + response.getShipName() + " created");
+    }
+
+    private boolean isShipAvailable(Bag<Integer> availableShips, ShipSetupResponse response) {
+        return availableShips.getCount(response.getLength()) > 0;
     }
 
     private void printNumberOfShipsLeft(Bag<Integer> numberOfShips) {

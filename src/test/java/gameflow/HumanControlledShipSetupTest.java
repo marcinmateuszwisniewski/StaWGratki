@@ -14,7 +14,7 @@ import userinput.ShipSetupResponse;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-
+@Ignore
 class HumanControlledShipSetupTest {
 
     @Mock
