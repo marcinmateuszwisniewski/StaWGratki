@@ -1,13 +1,8 @@
 package userinput;
 
-import boards.Board;
 import constants.BoardSize;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import ships.Coordinate;
-
-import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -70,7 +65,7 @@ class CoordinateParserTest {
     @Test
     public void testInvalidTooGreatLowerCaseInputsForStandardBoardShouldFail(){
         CoordinateParser parser = new CoordinateParser(BoardSize.STANDARD);
-        String[] inputs = {"ł5","k3","z9"};
+        String[] inputs = {"n5","k3","z9"};
         for(String input : inputs){
 
             IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> parser.parseCoordinates(input));
@@ -82,7 +77,7 @@ class CoordinateParserTest {
     @Test
     public void testInvalidTooGreatUpperCaseInputsForStandardBoardShouldFail(){
         CoordinateParser parser = new CoordinateParser(BoardSize.STANDARD);
-        String[] inputs = {"Ł5","K3","Z9"};
+        String[] inputs = {"N5","K3","Z9"};
         for(String input : inputs){
 
             IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> parser.parseCoordinates(input));

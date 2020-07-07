@@ -3,7 +3,7 @@ package gameflow;
 import boards.BoardDisplay;
 import constants.ShipRoster;
 import gamestate.GameStateService;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -12,9 +12,7 @@ import ships.ShipFactory;
 import userinput.ShipSetupCommandLine;
 import userinput.ShipSetupResponse;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-@Ignore
 class HumanControlledShipSetupTest {
 
     @Mock
@@ -40,7 +38,7 @@ class HumanControlledShipSetupTest {
 
 
     @Test
-    @Ignore
+    @Disabled
     public void testGetNextAvailableShip(){
 
         when(response.getFirstCoord()).thenReturn(Coordinate.of(5,5));
