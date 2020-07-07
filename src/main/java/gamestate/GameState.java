@@ -1,6 +1,5 @@
 package gamestate;
 
-import boards.Board;
 import boards.Player;
 import constants.PlayerEnum;
 import lombok.Getter;

@@ -6,12 +6,12 @@ import constants.PlayerEnum;
 import constants.ShipRoster;
 import gamestate.GameState;
 import gamestate.GameStateService;
+import org.apache.commons.collections4.Bag;
 import ships.Ship;
 import ships.ShipFactory;
 import ships.ShipValidator;
 import userinput.CommandLineInterface;
 import userinput.ShipSetupResponse;
-import org.apache.commons.collections4.Bag;
 
 import java.util.HashSet;
 import java.util.Set;
