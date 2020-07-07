@@ -52,6 +52,7 @@ public class HumanControlledShipSetup implements ShipSetupInterface {
 
         HashSet<Ship> ships = new HashSet<>();
 
+
         Bag<Integer> availableShips = shipRoster.value();
 
         while (!availableShips.isEmpty()) {

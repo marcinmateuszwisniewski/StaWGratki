@@ -48,6 +48,8 @@ class HumanControlledShipSetupTest {
 
         when(shipRoster.value()).thenReturn(ShipRoster.STANDARD.value());
         when(commandLine.read()).thenReturn(response);
+        // postaraj się nie testować całości, chyba że chcesz się pokusić o testy integracyjne
+        // zobacz ile już masz tych when() pomyśl czy jesteś w stanie testować mniejszy wycinek, a jeżeli nie to czy jesteś w stanie zrefaktoryzować kod, bo może za dużo się dzieje
         //TODO:Jak przetestować całość?
         //assertTrue(shipSetup.)
     }

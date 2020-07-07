@@ -8,6 +8,13 @@ import lombok.NonNull;
 
 public class GameState {
 
+    // nie wiem czy robienie osobnych pól jest ok w tym przypadku
+    // to jest kwestia do zastanowienia się, jeżeli chciałbyś zrobić z tego wersję webową
+    // to z pewnością każdy gracz ma swoją instancję GameState
+    // jeżeli nie chcesz z tego zrobić wersji webowej to IMO lepiej zrobić kolekcję graczy
+    // i rozpoznawać ich po poszczególnych polach, ale już graczowskich
+    // jeżeli chciałbyś to zrobić w formie getPlayer()
+    // to przenieś pole identyfikujące gracza do gracza
     @Getter
     private Player playerOne;
     @Getter

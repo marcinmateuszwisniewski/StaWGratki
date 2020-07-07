@@ -1,6 +1,8 @@
 import boards.BoardDisplay;
 import constants.BoardSize;
 import constants.PlayerEnum;
+// zła praktyka, zaśmiecasz sobie przestrzeń nazw jak importujesz wszystko
+// importuj tylko to z czego korzystasz faktycznie
 import gameflow.*;
 import gamestate.GameStateService;
 import userinput.StartGameCommandLine;
@@ -16,6 +18,7 @@ public class StaWGratkiMainClass {
       gameStart.init();
       final BoardDisplay bd = new BoardDisplay(gs, BoardSize.STANDARD);
       //TODO: too many arguments.
+        // IMO ilość argumentów jest lepsza ;D
       final ShipSetupInterface setup = new HumanControlledShipSetup(ShipSetupArgumentsProvider.getStandardHumanArgs(), gs, bd);
       setup.setup(PlayerEnum.ONE);
 
