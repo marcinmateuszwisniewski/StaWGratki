@@ -7,11 +7,12 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class ShipSetupCommandLine implements CommandLineInterface {
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
     private final CoordinateParser parser;
 
-    public ShipSetupCommandLine(CoordinateParser parser) {
+    public ShipSetupCommandLine(CoordinateParser parser, Scanner scanner) {
         this.parser = parser;
+        this.scanner = scanner;
     }
 
     public ShipSetupResponse read() throws IllegalArgumentException{
@@ -30,9 +31,9 @@ public class ShipSetupCommandLine implements CommandLineInterface {
             firstCoord = stringTokenizer.nextToken();
             secondCoord = stringTokenizer.nextToken();
             length = Integer.parseInt(stringTokenizer.nextToken());
-            shipName = stringTokenizer.nextToken("");
+            shipName = stringTokenizer.nextToken("").trim();
         } catch (NoSuchElementException e) {
-            throw new IllegalArgumentException("your input lacks something", e);
+            throw new IllegalArgumentException("your input lacks something:", e);
         }
 
         Coordinate firstC;

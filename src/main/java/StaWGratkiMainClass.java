@@ -18,7 +18,6 @@ public class StaWGratkiMainClass {
       GameStart gameStart = new GameStart(new StartGameCommandLine(scanner),gs);
       gameStart.init();
       final BoardDisplay bd = new BoardDisplay(gs, BoardSize.STANDARD);
-      //TODO: too many arguments.
       final ShipSetupInterface setup = new HumanControlledShipSetup(ShipSetupArgumentsProvider.getStandardHumanArgs(), gs, bd);
       setup.setup(PlayerEnum.ONE);
 
